@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Controls } from "./Controls";
+import { MixtapeProvider } from "./MixtapeContext";
+import { SongList } from "./SongList";
 
-function App() {
+export const MixtapeApp = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MixtapeProvider songs={songs}>
+      <div className="app">
+        <h1 className="heading">My 🔥 Mixtape</h1>
+      </div>
+      <Controls />
+      <SongList />
+    </MixtapeProvider>
   );
-}
+};
 
-export default App;
+const songs = [
+  {
+    artist: "Smash Mouth",
+    genre: "pop",
+    name: "All Star",
+    year: 1999
+  },
+  {
+    artist: "Drake",
+    genre: "rap",
+    name: "Hotline Bling",
+    year: 2015
+  },
+  {
+    artist: "Lizzo",
+    genre: "hip hop",
+    name: "Juice",
+    year: 2019
+  },
+  {
+    artist: "Rick Astley",
+    genre: "rock",
+    name: "Never Gonna Give You Up",
+    year: 1987
+  },
+  {
+    artist: "4 Non Blondes",
+    genre: "rock",
+    name: "What's Up",
+    year: 1993
+  }
+];
